@@ -1,8 +1,10 @@
-package com.pdst.personalnotebook;
+package com.pdst.personalnotebook.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.pdst.personalnotebook.R;
 
 public class ActivitySplashScreen extends AppCompatActivity {
 
