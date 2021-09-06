@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">PersonalNoteBook</string>
+    <string name="note_title">Note Title</string>
+
+    <string name="dummy_text_1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequuntur
+        deleniti dicta dolor dolorum esse eum expedita explicabo illum, nemo nesciunt odit officia,
+        quae quis quod rem tempore velit voluptatem.
+    </string>
+
+    <string name="dummy_text_2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequuntur
+        deleniti dicta dolor dolorum esse eum expedita explicabo illum, nemo nesciunt odit officia,
+        quae quis quod rem tempore velit voluptatem.Loremtempore velit Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Aut consequatur quaerat ratione vero!
+        At deserunt ducimus earum et excepturi ipsa minima nobis porro, qui rerum sunt veniam? Facilis ipsam, itaque!
+    </string>
+
+    <string name="dummy_text_3">Lorem ipsum dolor sit amet</string>
+
+    <string name="dummy_text_4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequuntur
+        deleniti dicta dolor dolorum esse eum expedita explicabo illum, nemo nesciunt odit officia,
+        quae quis quod rem tempore velit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur quaerat ratione vero!
+        At deserunt ducimus earum et excepturi ipsa minima nobis porro, qui rerum sunt veniam? Facilis ipsam, itaque!
+    </string>
+
+    <string name="dummy_text_5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, commodi error est ex fugit necessitatibus,
+        non odio perspiciatis provident quam repudiandae voluptatem voluptatum. Blanditiis est fuga harum inventore, mollitia saepe.
+        tempore velit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur quaerat ratione vero!
+        At deserunt ducimus earum et excepturi ipsa minima nobis porro, qui rerum sunt veniam? Facilis ipsam, itaque!
+        tempore velit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur quaerat ratione vero!
+        At deserunt ducimus earum et excepturi ipsa minima nobis porro, qui rerum sunt veniam? Facilis ipsam, itaque!
+        tempore velit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur quaerat ratione vero!
+        At deserunt ducimus earum et excepturi ipsa minima nobis porro, qui rerum sunt veniam? Facilis ipsam, itaque!
+        tempore velit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur quaerat ratione vero!
+        At deserunt ducimus earum et excepturi ipsa minima nobis porro, qui rerum sunt veniam? Facilis ipsam, itaque!
+    </string>
+    <string name="date_modified">12/08/2021</string>
 </resources>
