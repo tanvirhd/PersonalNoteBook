@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pdst.personalnotebook.R;
@@ -41,9 +42,14 @@ public class AdapterNoteRecy extends RecyclerView.Adapter<AdapterNoteRecy.ViewHo
         holder.tvNoteModifiedDate.setText(modelNoteList.get(position).getModifiedOn());
         holder.ivLock.setVisibility(View.GONE);
 
-
-
-        if(modelNoteList.get(position).isPinned()){
+        if(modelNoteList.get(position).isProtected()){
+            holder.lockedView.setVisibility(View.GONE);
+            holder.ivLock.setVisibility(View.VISIBLE);
+        }else {
+            holder.lockedView.setVisibility(View.VISIBLE);
+            holder.ivLock.setVisibility(View.GONE);
+        }
+        /*if(modelNoteList.get(position).isPinned()){
             holder.ivNotePin.setImageResource(R.drawable.icon_pin);
         }else{
             holder.ivNotePin.setVisibility(View.GONE);
@@ -62,7 +68,7 @@ public class AdapterNoteRecy extends RecyclerView.Adapter<AdapterNoteRecy.ViewHo
             holder.ivLock.setVisibility(View.VISIBLE);
             holder.ivNotePin.setVisibility(View.GONE);
             holder.tvCategory.setVisibility(View.GONE);
-        }
+        }*/
     }
 
     @Override
@@ -73,6 +79,7 @@ public class AdapterNoteRecy extends RecyclerView.Adapter<AdapterNoteRecy.ViewHo
     public class ViewHolderAdapterNoteRecy extends RecyclerView.ViewHolder{
         TextView tvNoteTitle,tvNoteBody,tvNoteModifiedDate,tvNotePassword,tvNoteAttachment,tvCategory;
         ImageView ivNotePin,ivNoteAttachmentIcon,ivLock;
+        Group lockedView;
 
         public ViewHolderAdapterNoteRecy(@NonNull View itemView) {
             super(itemView);
@@ -86,6 +93,7 @@ public class AdapterNoteRecy extends RecyclerView.Adapter<AdapterNoteRecy.ViewHo
             ivNotePin=itemView.findViewById(R.id.ivPin);
             ivNoteAttachmentIcon=itemView.findViewById(R.id.ivAttatchmentIcon);
             ivLock=itemView.findViewById(R.id.ivLockIcon);
+            lockedView =itemView.findViewById(R.id.grouplockedView);
         }
     }
 }
