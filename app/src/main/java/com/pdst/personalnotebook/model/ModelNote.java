@@ -15,10 +15,7 @@ public class ModelNote {
     private boolean isProtected;
     private String notePassword;
 
-    public ModelNote(String noteTitle, String noteBody,
-                     String modifiedOn, int categoryId,
-                     boolean isPinned, boolean hasAttachment,
-                     List<String> attachmentPath, boolean isProtected, String notePassword) {
+    public ModelNote(String noteTitle, String noteBody, String modifiedOn, int categoryId, boolean isPinned, boolean hasAttachment, List<String> attachmentPath, boolean isProtected, String notePassword) {
 
         this.noteTitle = noteTitle;
         this.noteBody = noteBody;
