@@ -10,4 +10,6 @@
 
     <color name="themeColor">#f06543</color>
     <color name="catagotyColor">#E6975B</color>
+
+    <color name="lightGray">#CCCCCC</color>
 </resources>
