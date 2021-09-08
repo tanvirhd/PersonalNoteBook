@@ -12,7 +12,7 @@
         android:id="@+id/categoryRecy"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="70dp"
         android:layout_marginRight="57dp"
         android:orientation="horizontal"
@@ -23,7 +23,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivCreteNewCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="6dp"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ivCreteNewCategory"
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -80,11 +80,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_margin="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
             android:backgroundTint="@color/themeColor"
             android:src="@drawable/icon_add_new_note"
             app:fabSize="normal"
-            tools:visibility="visible" />
+            android:visibility="visible" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -95,16 +96,17 @@
         android:layout_marginRight="32dp"
         android:backgroundTint="@color/themeColor"
         android:clickable="true"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/icon_notes"
-        tools:visibility="invisible" />
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/tv_fab_new_noteText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="12dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/background_fab_text"
         android:fontFamily="sans-serif"
         android:paddingStart="16dp"
@@ -115,26 +117,26 @@
         app:layout_constraintBottom_toBottomOf="@+id/fab_add_new_note"
         app:layout_constraintEnd_toStartOf="@+id/fab_add_new_note"
         app:layout_constraintTop_toTopOf="@+id/fab_add_new_note"
-        tools:visibility="invisible" />
+        android:visibility="invisible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_new_checklist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/themeColor"
         android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/fab_add_new_note"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/icon_checklist"
-        tools:visibility="invisible" />
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/tv_fab_new_checklistText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="12dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/background_fab_text"
         android:fontFamily="sans-serif"
         android:paddingStart="16dp"
@@ -145,6 +147,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/fab_add_new_checklist"
         app:layout_constraintEnd_toStartOf="@+id/fab_add_new_checklist"
         app:layout_constraintTop_toTopOf="@+id/fab_add_new_checklist"
-        tools:visibility="invisible" />
+        android:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

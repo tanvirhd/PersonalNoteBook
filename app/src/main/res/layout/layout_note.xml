@@ -10,9 +10,11 @@
 
     <TextView
         android:id="@+id/tvNoteTitle"
-        android:layout_width="75dp"
-        android:layout_height="25dp"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
         android:fontFamily="sans-serif"
+        android:maxLines="2"
         android:text="@string/note_title"
         android:textColor="@color/black"
         android:textSize="18dp"
@@ -32,12 +34,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginRight="16dp"
         android:ellipsize="end"
-        android:maxLength="200"
         android:maxLines="10"
         android:text="@string/dummy_text_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNoteTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNoteTitle"/>
 
     <TextView
         android:id="@+id/noteModified"
@@ -51,7 +52,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNoteBody" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNoteBody"/>
 
     <TextView
         android:id="@+id/tvCategory"
@@ -75,14 +76,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
     <TextView
         android:id="@+id/tvAttachment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
         android:fontFamily="sans-serif"
         android:text="Attatchment"
         app:layout_constraintBottom_toBottomOf="parent"
