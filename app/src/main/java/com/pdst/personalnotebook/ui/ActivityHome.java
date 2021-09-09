@@ -131,8 +131,8 @@ public class ActivityHome extends AppCompatActivity {
             mainAddFab.startAnimation(rotateForward);
             addNewNoteFab.startAnimation(fabClose);
             addNewChecklistFab.startAnimation(fabClose);
-            addNewNoteFab.setClickable(false);
-            addNewChecklistFab.setClickable(false);
+            addNewNoteFab.setClickable(true);
+            addNewChecklistFab.setClickable(true);
             addNewNoteFabText.startAnimation(fabClose);
             addNewChecklistFabText.startAnimation(fabClose);
             isOpen=false;
@@ -142,8 +142,8 @@ public class ActivityHome extends AppCompatActivity {
             mainAddFab.startAnimation(rotateBackward);
             addNewNoteFab.startAnimation(fabOpen);
             addNewChecklistFab.startAnimation(fabOpen);
-            addNewNoteFab.setClickable(true);
-            addNewChecklistFab.setClickable(true);
+            addNewNoteFab.setClickable(false);
+            addNewChecklistFab.setClickable(false);
             addNewNoteFabText.startAnimation(fabOpen);
             addNewChecklistFabText.startAnimation(fabOpen);
             isOpen=true;

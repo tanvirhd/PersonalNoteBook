@@ -6,14 +6,18 @@
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/background_category.xml" value="0.3828125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/background_fab_text.xml" value="0.3828125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/background_home_activity.xml" value="0.3828125" />
+        <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/background_new_category_create_popup.xml" value="0.2703125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/background_note.xml" value="0.3828125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/icon_add_new.xml" value="0.3828125" />
+        <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/icon_add_new_category.xml" value="0.2703125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/icon_add_new_note.xml" value="0.2703125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/icon_attachments.xml" value="0.3828125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/icon_pin.xml" value="0.3828125" />
+        <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/drawable/styles.xml" value="0.2703125" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/layout/activity_home.xml" value="0.4" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/layout/activity_lock_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/layout/activity_note.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/layout/layout_catagory.xml" value="0.4" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/layout/layout_category.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidWorkspace/PersonalNoteBookApp/PersonalNoteBook/app/src/main/res/layout/layout_new_category_create.xml" value="0.264" />
