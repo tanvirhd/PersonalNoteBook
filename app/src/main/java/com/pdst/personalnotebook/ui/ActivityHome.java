@@ -1,5 +1,5 @@
 package com.pdst.personalnotebook.ui;
-
+//testing commit
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ActivityHome extends AppCompatActivity {
+
 
     private List<ModelCategory> categoryList;
     private AdapterNoteCategoryRecy adapterNoteCategoryRecy;
