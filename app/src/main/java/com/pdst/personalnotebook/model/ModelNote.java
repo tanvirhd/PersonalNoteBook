@@ -1,21 +1,43 @@
 package com.pdst.personalnotebook.model;
 
 import java.util.List;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "notes")
 public class ModelNote {
-    private String noteTitle;
-    private String noteBody;
-    private String modifiedOn;
-    private int categoryId;
-     
-    private boolean isPinned;
-    private boolean hasAttachment;
-    private List<String> attachmentPath;
+    @PrimaryKey (autoGenerate = true)
+    public int id;
 
+    @ColumnInfo(name = "title")
+    private String noteTitle;
+
+    @ColumnInfo(name = "body")
+    private String noteBody;
+
+    @ColumnInfo(name = "modifiedOn")
+    private String modifiedOn;
+
+    @ColumnInfo(name = "CategoryId")
+    private int categoryId;
+
+    @ColumnInfo(name = "isPinned")
+    private boolean isPinned;
+
+    @ColumnInfo(name = "hasAttachment")
+    private boolean hasAttachment;
+
+    /*@ColumnInfo(name = "attachmentPath")
+    private List<String> attachmentPath;*/
+
+    @ColumnInfo(name = "isProtected")
     private boolean isProtected;
+
+    @ColumnInfo(name = "notePassword")
     private String notePassword;
 
-    public ModelNote(String noteTitle, String noteBody, String modifiedOn, int categoryId, boolean isPinned, boolean hasAttachment, List<String> attachmentPath, boolean isProtected, String notePassword) {
+    public ModelNote(String noteTitle, String noteBody, String modifiedOn, int categoryId, boolean isPinned, boolean hasAttachment, boolean isProtected, String notePassword) {
 
         this.noteTitle = noteTitle;
         this.noteBody = noteBody;
@@ -23,7 +45,7 @@ public class ModelNote {
         this.categoryId = categoryId;
         this.isPinned = isPinned;
         this.hasAttachment = hasAttachment;
-        this.attachmentPath = attachmentPath;
+        /*this.attachmentPath = attachmentPath;*/
         this.isProtected = isProtected;
         this.notePassword = notePassword;
     }
@@ -72,17 +94,17 @@ public class ModelNote {
         return hasAttachment;
     }
 
-    public void setHasAttachment(boolean hasAttachment) {
+    /*public void setHasAttachment(boolean hasAttachment) {
         this.hasAttachment = hasAttachment;
-    }
+    }*/
 
-    public List<String> getAttachmentPath() {
+    /*public List<String> getAttachmentPath() {
         return attachmentPath;
-    }
+    }*/
 
-    public void setAttachmentPath(List<String> attachmentPath) {
+    /*public void setAttachmentPath(List<String> attachmentPath) {
         this.attachmentPath = attachmentPath;
-    }
+    }*/
 
     public boolean isProtected() {
         return isProtected;
