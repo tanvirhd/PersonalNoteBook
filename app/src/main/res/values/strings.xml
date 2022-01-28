@@ -14,4 +14,9 @@
         At deserunt ducimus earum et excepturi ipsa minima nobis porro, qui rerum sunt veniam? Facilis ipsam, itaque!
     </string>
     <string name="date_modified">12/08/2021</string>
+    <string-array name="category">
+        <item>All</item>
+        <item>Personal</item>
+        <item>Work</item>
+    </string-array>
 </resources>

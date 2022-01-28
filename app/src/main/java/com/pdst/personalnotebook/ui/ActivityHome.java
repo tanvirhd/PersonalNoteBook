@@ -185,7 +185,7 @@ public class ActivityHome extends AppCompatActivity {
         );
 
 
-        modelNoteList= new ArrayList<>();
+        /*modelNoteList= new ArrayList<>();
         modelNoteList.add(
                 new ModelNote(
                         "Barir Kaj koresis? Ki obstha tor ?",
@@ -380,7 +380,7 @@ public class ActivityHome extends AppCompatActivity {
                         false,
                         "1234"
                 )
-        );
+        );*/
 
     }
 

@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="DarkGrey">#C4C4C4</color>
     <color name="LockScreen">#E1E2E2</color>
+    <color name="lightBlack">#363737</color>
 
     <color name="themeColor">#f06543</color>
     <color name="catagotyColor">#E6975B</color>
