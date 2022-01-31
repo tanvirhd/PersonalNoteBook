@@ -185,8 +185,8 @@ public class ActivityHome extends AppCompatActivity {
         );
 
 
-        /*modelNoteList= new ArrayList<>();
-        modelNoteList.add(
+        modelNoteList= new ArrayList<>();
+        /*modelNoteList.add(
                 new ModelNote(
                         "Barir Kaj koresis? Ki obstha tor ?",
                          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +

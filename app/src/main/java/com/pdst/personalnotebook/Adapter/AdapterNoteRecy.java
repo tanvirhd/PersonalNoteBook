@@ -49,26 +49,6 @@ public class AdapterNoteRecy extends RecyclerView.Adapter<AdapterNoteRecy.ViewHo
             holder.lockedView.setVisibility(View.VISIBLE);
             holder.ivLock.setVisibility(View.GONE);
         }
-        /*if(modelNoteList.get(position).isPinned()){
-            holder.ivNotePin.setImageResource(R.drawable.icon_pin);
-        }else{
-            holder.ivNotePin.setVisibility(View.GONE);
-        }
-
-        if(!modelNoteList.get(position).isHasAttachment()){
-            holder.tvNoteAttachment.setVisibility(View.GONE);
-            holder.ivNoteAttachmentIcon.setVisibility(View.GONE);
-        }
-        if(modelNoteList.get(position).isProtected()){
-            holder.tvNoteBody.setVisibility(View.GONE);
-            holder.tvNoteAttachment.setVisibility(View.GONE);
-            holder.tvNoteModifiedDate.setVisibility(View.GONE);
-            holder.ivNoteAttachmentIcon.setVisibility(View.GONE);
-            holder.ivLock.setImageResource(R.drawable.icon_lock);
-            holder.ivLock.setVisibility(View.VISIBLE);
-            holder.ivNotePin.setVisibility(View.GONE);
-            holder.tvCategory.setVisibility(View.GONE);
-        }*/
     }
 
     @Override
