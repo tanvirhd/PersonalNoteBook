@@ -3,6 +3,7 @@ package com.pdst.personalnotebook.model;
 import java.util.List;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "notes")
@@ -37,6 +38,7 @@ public class ModelNote {
     @ColumnInfo(name = "notePassword")
     private String notePassword;
 
+    @Ignore
     public ModelNote(String noteTitle, String noteBody, String modifiedOn, int categoryId, boolean isPinned, boolean hasAttachment, boolean isProtected, String notePassword) {
 
         this.noteTitle = noteTitle;
@@ -48,6 +50,10 @@ public class ModelNote {
         /*this.attachmentPath = attachmentPath;*/
         this.isProtected = isProtected;
         this.notePassword = notePassword;
+    }
+
+    public ModelNote(String noteTitle) {
+        this.noteTitle = noteTitle;
     }
 
     public String getNoteTitle() {
@@ -94,9 +100,9 @@ public class ModelNote {
         return hasAttachment;
     }
 
-    /*public void setHasAttachment(boolean hasAttachment) {
+    public void setHasAttachment(boolean hasAttachment) {
         this.hasAttachment = hasAttachment;
-    }*/
+    }
 
     /*public List<String> getAttachmentPath() {
         return attachmentPath;

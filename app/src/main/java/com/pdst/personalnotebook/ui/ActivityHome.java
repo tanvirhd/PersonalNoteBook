@@ -1,11 +1,14 @@
 package com.pdst.personalnotebook.ui;
 //testing commit
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,14 +22,14 @@ import com.pdst.personalnotebook.Adapter.AdapterNoteRecy;
 import com.pdst.personalnotebook.R;
 import com.pdst.personalnotebook.model.ModelCategory;
 import com.pdst.personalnotebook.model.ModelNote;
+import com.pdst.personalnotebook.viewmodel.ViewModelNote;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class ActivityHome extends AppCompatActivity {
 
+    private static final String TAG = "ActivityHome";
 
     private List<ModelCategory> categoryList;
     private AdapterNoteCategoryRecy adapterNoteCategoryRecy;
@@ -42,23 +45,18 @@ public class ActivityHome extends AppCompatActivity {
 
     private TextView addNewNoteFabText, addNewChecklistFabText;
 
+    private ViewModelNote viewModelNote;
+
     boolean isOpen=false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Note Category horizontal recyclerView
-        recyclerViewCategory=findViewById(R.id.categoryRecy);
-        initCategoryList();
 
-        recyclerViewCategory.setLayoutManager(new LinearLayoutManager(ActivityHome.this,LinearLayoutManager.HORIZONTAL,false));
-        adapterNoteCategoryRecy=new AdapterNoteCategoryRecy(categoryList,ActivityHome.this);
-        recyclerViewCategory.setAdapter(adapterNoteCategoryRecy);
-
-        // New Category Create Section
-        btnCreateNewCategory=findViewById(R.id.ivCreteNewCategory);
+        init();
 
         btnCreateNewCategory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,37 +65,6 @@ public class ActivityHome extends AppCompatActivity {
                 openCreateNewCategoryDialogBox();
             }
         });
-
-
-
-        // All Notes Vertical recyclerView
-        recyclerViewNote=findViewById(R.id.noteRecy);
-        recyclerViewNote.setLayoutManager(
-                new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-        );
-        adapterNoteRecy=new AdapterNoteRecy(modelNoteList,ActivityHome.this);
-        recyclerViewNote.setAdapter(adapterNoteRecy);
-
-
-
-
-
-
-        // Floating Action Button
-        mainAddFab= (FloatingActionButton) findViewById(R.id.fab_main_button);
-        addNewNoteFab= (FloatingActionButton) findViewById(R.id.fab_add_new_note);
-        addNewChecklistFab= (FloatingActionButton) findViewById(R.id.fab_add_new_checklist);
-
-        addNewNoteFabText=(TextView)findViewById(R.id.tv_fab_new_noteText);
-        addNewChecklistFabText=(TextView)findViewById(R.id.tv_fab_new_checklistText);
-
-
-        fabOpen=AnimationUtils.loadAnimation(this,R.anim.fab_open);
-        fabClose=AnimationUtils.loadAnimation(this,R.anim.fab_close);
-
-        rotateForward=AnimationUtils.loadAnimation(this,R.anim.fab_rotate_forward);
-        rotateBackward=AnimationUtils.loadAnimation(this,R.anim.fab_rotate_backward);
-
 
         mainAddFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +89,35 @@ public class ActivityHome extends AppCompatActivity {
             }
         });
 
+
+        viewModelNote.deleteNoteById(modelNoteList.get(0).id);
+        adapterNoteRecy.notifyDataSetChanged();
+
+        Toast.makeText(ActivityHome.this, ""+modelNoteList.get(0).id, Toast.LENGTH_SHORT).show();
+
+
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        /*viewModelNote.getAllNotes().observe(this, new Observer<List<ModelNote>>() {
+            @Override
+            public void onChanged(List<ModelNote> modelNotes) {
+                modelNoteList.clear();
+                modelNoteList.addAll(modelNotes);
+                adapterNoteRecy.notifyDataSetChanged();
+
+                Log.d(TAG, "onChanged: ActivityHome Notes" + modelNoteList.get(0).getNoteTitle());
+                Toast.makeText(ActivityHome.this, "getting data", Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+
+    }
+
 
 
 
@@ -157,8 +152,40 @@ public class ActivityHome extends AppCompatActivity {
         dialogFragmentNewCategoryCreate.show(getSupportFragmentManager(),"create new Category");
     }
 
-    private void initCategoryList() {
+    private void init() {
+        // Note Category horizontal recyclerView
+        recyclerViewCategory=findViewById(R.id.categoryRecy);
+        btnCreateNewCategory=findViewById(R.id.ivCreteNewCategory);
+        recyclerViewNote=findViewById(R.id.noteRecy);
         categoryList=new ArrayList<>();
+
+        // New Category Create Section
+        recyclerViewCategory.setLayoutManager(new LinearLayoutManager(ActivityHome.this,LinearLayoutManager.HORIZONTAL,false));
+        adapterNoteCategoryRecy=new AdapterNoteCategoryRecy(categoryList,ActivityHome.this);
+        recyclerViewCategory.setAdapter(adapterNoteCategoryRecy);
+
+        // All Notes Vertical recyclerView
+        modelNoteList= new ArrayList<>();
+        recyclerViewNote.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        adapterNoteRecy=new AdapterNoteRecy(modelNoteList,ActivityHome.this);
+        recyclerViewNote.setAdapter(adapterNoteRecy);
+
+
+        // Floating Action Button
+        mainAddFab= (FloatingActionButton) findViewById(R.id.fab_main_button);
+        addNewNoteFab= (FloatingActionButton) findViewById(R.id.fab_add_new_note);
+        addNewChecklistFab= (FloatingActionButton) findViewById(R.id.fab_add_new_checklist);
+
+        addNewNoteFabText=(TextView)findViewById(R.id.tv_fab_new_noteText);
+        addNewChecklistFabText=(TextView)findViewById(R.id.tv_fab_new_checklistText);
+
+
+        fabOpen=AnimationUtils.loadAnimation(this,R.anim.fab_open);
+        fabClose=AnimationUtils.loadAnimation(this,R.anim.fab_close);
+
+        rotateForward=AnimationUtils.loadAnimation(this,R.anim.fab_rotate_forward);
+        rotateBackward=AnimationUtils.loadAnimation(this,R.anim.fab_rotate_backward);
+
 
         categoryList.add(
                 new ModelCategory(1,"All Notes")
@@ -185,202 +212,15 @@ public class ActivityHome extends AppCompatActivity {
         );
 
 
-        modelNoteList= new ArrayList<>();
-        /*modelNoteList.add(
-                new ModelNote(
-                        "Barir Kaj koresis? Ki obstha tor ?",
-                         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                 "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo ",
-                        "12/07/2021",
-                        1,
-                        false,
-                        true,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
-
-        modelNoteList.add(
-                new ModelNote(
-                        "lekha Pora",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo " +
-                                "illum, nemo nesciunt odit officia quae quis quod rem tempore velit voluptatem.",
-                        "12/07/2021",
-                        6,
-                        false,
-                        false,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        true,
-                        "1234"
-                )
-        );
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Home Task",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
-                        "12/07/2021",
-                         4,
-                        false,
-                        true,
-                         Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
+        modelNoteList.add(new ModelNote(
+              "note 1"
+        ));
+        modelNoteList.add(new ModelNote(
+                "note 2"
+        ));
 
 
-        modelNoteList.add(
-                new ModelNote(
-                        "Pen",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo " +
-                                "illum, nemo nesciunt odit officia quae quis quod rem tempore velit voluptatem." +
-                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo",
-
-                        "12/07/2021",
-                         6,
-                        true,
-                        true,
-                         Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Numbers",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo vAperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboAperiam" +
-                                "consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo ",
-                        "12/07/2021",
-                         3,
-                        false,
-                        true,
-                         Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
-
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Land Line",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo vAperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboAperiam" +
-                                "consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo ",
-                        "12/07/2021",
-                        3,
-                        false,
-                        false,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
-
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Peronal",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo vAperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboAperiam" +
-                                "consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo ",
-                        "12/07/2021",
-                        3,
-                        false,
-                        true,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        true,
-                        "1234"
-                )
-        );
-
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Numbers",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo vAperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboAperiam" +
-                                "consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo ",
-                        "12/07/2021",
-                        3,
-                        false,
-                        false,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
-
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Numbers",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
-                        "12/07/2021",
-                        3,
-                        false,
-                        true,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
-
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Work",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo vAperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboAperiam" +
-                                "consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboconsequuntur deleniti dicta dolor dolorum esse eum expedita explicabo",
-                        "12/07/2021",
-                        3,
-                        false,
-                        true,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );
-
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Math Lecture Note",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo vAperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboAperiam",
-                        "12/07/2021",
-                        3,
-                        false,
-                        true,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        true,
-                        "1234"
-                )
-        );
-
-
-        modelNoteList.add(
-                new ModelNote(
-                        "Working Hour",
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
-                                "Aperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicabo vAperiam consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboAperiam" +
-                                "consequuntur deleniti dicta dolor dolorum esse eum expedita explicaboconsequuntur deleniti dicta dolor dolorum esse eum expedita explicaboconsequuntur deleniti dicta dolor dolorum esse eum expedita explicaboconsequuntur deleniti dicta dolor dolorum esse eum expedita explicaboconsequuntur deleniti dicta dolor dolorum esse eum expedita explicabo ",
-                        "12/07/2021",
-                        3,
-                        false,
-                        true,
-                        Arrays.asList("abch","jhacj","jbaksck"),
-                        false,
-                        "1234"
-                )
-        );*/
+        viewModelNote= new ViewModelProvider.AndroidViewModelFactory(getApplication()).create(ViewModelNote.class);
 
     }
 

@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/textView2"
+        android:id="@+id/etNoteTitle"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/etNoteDes"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
@@ -67,8 +67,8 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/etNoteTitle"
+        app:layout_constraintTop_toBottomOf="@+id/etNoteTitle" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -143,11 +143,10 @@
         android:layout_marginStart="149dp"
         android:layout_marginEnd="168dp"
         android:layout_marginBottom="123dp"
-        android:onClick="home"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

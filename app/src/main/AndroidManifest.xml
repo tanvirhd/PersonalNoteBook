@@ -10,16 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalNoteBook">
         <activity android:name=".ui.ActivityLockScreen">
+
+        </activity>
+        <activity android:name=".ui.ActivityNote">
+
+        </activity>
+        <activity android:name=".ui.ActivityHome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ActivityNote">
-
-        </activity>
-        <activity android:name=".ui.ActivityHome" />
         <activity android:name=".ui.ActivitySplashScreen">
 
         </activity>
